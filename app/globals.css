@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-blue: #4F46E5;
+  --color-brand-primary: #4F46E5;
+  --color-brand-accent: #F43F5E;
+  --color-brand-secondary: #14B8A6;
+  --color-surface: #FAF8F5;
+  --color-surface-elevated: #FFFFFF;
+  --color-ink: #1C1917;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
+.transition-all-custom {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradient-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(79, 70, 229, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(244, 63, 94, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+    var(--color-surface);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #4F46E5 0%, #F43F5E 50%, #14B8A6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-tint {
+  background: linear-gradient(180deg, rgba(79, 70, 229, 0.03) 0%, transparent 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(79, 70, 229, 0.08);
+  box-shadow: 0 4px 24px rgba(28, 25, 23, 0.04);
+}
+
+.dark .glass-card {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.fc {
+  font-family: var(--font-sans) !important;
+}
+
+.fc-header-toolbar {
+  margin-bottom: 1.5rem !important;
+}
+
+.fc .fc-toolbar-title {
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: inherit;
+}
+
+.fc .fc-button-primary {
+  background-color: #4F46E5 !important;
+  border-color: #4F46E5 !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  text-transform: capitalize !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: 0.375rem !important;
+}
+
+.fc .fc-button-primary:hover, .fc .fc-button-primary:focus {
+  background-color: #4338CA !important;
+  border-color: #4338CA !important;
+  box-shadow: none !important;
+}
+
+.fc .fc-button-active {
+  background-color: #F43F5E !important;
+  border-color: #F43F5E !important;
+}
+
+.fc .fc-col-header-cell-cushion {
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 8px 0 !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.fc-theme-standard td, .fc-theme-standard th {
+  border: 1px solid rgba(229, 231, 235, 0.8) !important;
+}
+
+.dark .fc-theme-standard td, .dark .fc-theme-standard th {
+  border: 1px solid rgba(55, 65, 81, 0.8) !important;
+}
+
+.fc .fc-daygrid-day-number {
+  color: inherit !important;
+  font-size: 0.875rem !important;
+  padding: 6px !important;
+  text-decoration: none !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(79, 70, 229, 0.08) !important;
+}
+
+.fc-event {
+  border-radius: 4px !important;
+  padding: 2px 4px !important;
+  font-size: 0.75rem !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+}
+
+@keyframes portfolio-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes portfolio-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.portfolio-card-enter {
+  opacity: 0;
+  animation: portfolio-fade-up 420ms ease-out forwards;
+}
+
+.portfolio-modal-enter {
+  animation: portfolio-pop-in 220ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card-enter,
+  .portfolio-modal-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
